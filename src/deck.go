@@ -38,6 +38,7 @@ func (d deck) shuffle() {
 	// random seed creation code added later --
 	source := rand.NewSource(time.Now().UnixNano())
 	r := rand.New(source)
+	//--
 	var temp int
 	for i := range d {
 		//temp = rand.Intn(len(d)-1) This will produce the same shuffle result
