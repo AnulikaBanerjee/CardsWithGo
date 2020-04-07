@@ -7,6 +7,7 @@ import (
 	"os"
 	"strconv"
 	"strings"
+	"time"
 )
 
 type deck []string
@@ -34,9 +35,14 @@ func newDeck() deck {
 }
 
 func (d deck) shuffle() {
+	// random seed creation code added later --
+	source := rand.NewSource(time.Now().UnixNano())
+	r := rand.New(source)
 	var temp int
 	for i := range d {
-		temp = rand.Intn(51)
+		//temp = rand.Intn(len(d)-1) This will produce the same shuffle result
+		//because golang uses the same seed evertime. So we need something where we can provide a random seed.
+		temp = r.Intn(len(d) - 1)
 		d[i], d[temp] = d[temp], d[i]
 
 	}
