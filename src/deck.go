@@ -13,7 +13,7 @@ import (
 type deck []string
 
 func newDeck() deck {
-	types := []string{"Club", "Spades", "Diamonds", "Hearts"}
+	types := []string{"Clubs", "Spades", "Diamonds", "Hearts"}
 	fullDeck := deck{}
 	for _, typ := range types {
 		for i := 1; i <= 13; i++ {
